@@ -1,5 +1,7 @@
 # eplan-mcp
 
+分支于swater-kankyo/eplan-mcp-oss，基于原架构补全了AddIn和mcp服务器空置的实际操作方法
+
 `eplan-mcp` 是一个 [MCP（Model Context Protocol）](https://modelcontextprotocol.io) 服务器：
 它让 AI 助手（或任何 MCP 客户端）通过一组定义清晰的工具，驱动本机正在运行的
 **EPLAN P8** 完成日常工作——打开 / 新建 / 关闭 / 保存项目，导入导出项目，
