@@ -1,0 +1,28 @@
+# ============================================================
+#  eplan-mcp  —  release-archive hygiene
+#
+#  `export-ignore` strips these paths from `git archive` output.
+#  This is a second, independent layer on top of .gitignore: even
+#  if a build artifact or local cache somehow becomes tracked, it
+#  will never reach a published archive built with `git archive`.
+#  Name file TYPES and conventional dev-only paths only, never
+#  specific private assets.
+# ============================================================
+
+# --- Preserve the line endings stored in the repository.
+#     With core.autocrlf=false the checkout matches the commit byte for byte,
+#     so a round-trip through git never rewrites files.
+*           -text
+
+# --- Keep build artifacts and local caches out of archives ---
+__pycache__/    export-ignore
+*.pyc           export-ignore
+*.pyo           export-ignore
+build/          export-ignore
+dist/           export-ignore
+*.egg-info/     export-ignore
+
+# --- Keep developer/CI scaffolding out of published archives ---
+.gitattributes  export-ignore
+.gitignore      export-ignore
+.github/        export-ignore

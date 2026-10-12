@@ -1,0 +1,100 @@
+# ============================================================
+#  eplan-mcp  —  WHITELIST-ONLY .gitignore
+#
+#  Philosophy: ignore EVERYTHING by default, then re-allow only
+#  the files and folders reviewed and approved as public. A
+#  whitelist fails closed: anything not explicitly allowed below
+#  is never tracked. There is therefore no need to enumerate
+#  individual private files -- enumerating them would itself leak
+#  information about what is intentionally kept out of the repo.
+#
+#  To publish a new file, add an explicit "!" allow rule for it.
+#  When in doubt, leave it out.
+# ============================================================
+
+# --- Block everything first ---
+*
+
+# --- Allow directories to be traversed so nested allows can match ---
+!*/
+
+# --- Standard OSS metadata (repo root) ---
+!README.md
+!LICENSE
+!NOTICE
+!VERSION
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+!SECURITY.md
+!.gitignore
+!.gitattributes
+!package.ps1
+
+# --- Public framework sources ---
+!src/**/*.py
+!src/config.template.json
+
+# --- Reference add-in (stub) ---
+!addin/*.cs
+!addin/build.ps1
+!addin/README.md
+
+# --- Public user-facing documentation ---
+!docs/*.md
+
+# --- Examples ---
+!examples/**/*.py
+!examples/**/*.md
+!examples/**/*.json
+
+# ============================================================
+#  Generic safety net (defense-in-depth).
+#
+#  The whitelist above already fails closed; the patterns below
+#  add belt-and-braces coverage against common artifact TYPES.
+#  They name file types only, never specific assets, so this
+#  section carries no information about what is kept private.
+# ============================================================
+
+# --- Compiled binaries / debug symbols ---
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+
+# --- Local configuration and secrets ---
+config.json
+config.local.json
+secrets.json
+.env
+*.key
+*.pem
+
+# --- Runtime scratch / lock files ---
+*.flag
+*.log
+
+# --- Backups and archives ---
+*.bak
+*.bak_*
+*.zip
+*.7z
+*.tar.gz
+
+# --- Python build, cache, and environment ---
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+build/
+dist/
+
+# --- IDE / editor ---
+.idea/
+.vs/
+.vscode/
+*.user

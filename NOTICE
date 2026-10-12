@@ -1,0 +1,22 @@
+eplan-mcp
+Copyright 2026 The eplan-mcp authors
+
+This product includes software developed by the eplan-mcp authors.
+
+Licensed under the Apache License, Version 2.0 (see the LICENSE file).
+
+----------------------------------------------------------------------
+Scope of this distribution
+----------------------------------------------------------------------
+
+This open framework provides a generic MCP (Model Context Protocol)
+interface for automating an EPLAN P8 instance and a minimal reference
+add-in that demonstrates the host/add-in command channel.
+
+This distribution contains only the open framework and its reference
+add-in. Additional capabilities built on top of this framework may be
+maintained separately and are not part of this open-source release.
+
+EPLAN and EPLAN P8 are trademarks of their respective owner. This
+project is an independent, community-maintained framework and is not
+affiliated with, endorsed by, or sponsored by that owner.
