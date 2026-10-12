@@ -1,12 +1,17 @@
 # eplan-mcp
 
 分支于swater-kankyo/eplan-mcp-oss，基于原架构补全了AddIn和mcp服务器空置的实际操作方法
+本README.md由AI生成
 
 `eplan-mcp` 是一个 [MCP（Model Context Protocol）](https://modelcontextprotocol.io) 服务器：
 它让 AI 助手（或任何 MCP 客户端）通过一组定义清晰的工具，驱动本机正在运行的
 **EPLAN P8** 完成日常工作——打开 / 新建 / 关闭 / 保存项目，导入导出项目，
 创建 / 列出 / 删除 / 复制 / 导入导出页，放置元件与宏，在引脚之间创建电气连接，
 绘制直线与折线，导出 PDF / 部件列表 / 设备列表，重命名设备标签，打开项目备份等。
+
+加入了一个经验文档，位置：eplan-mcp-oss\docs\EXPERIENCE.md，由Agent自行维护，实现自进化，需要用自然语言告知AI去维护，例如：
+- “阅读mcp服务器路径下的经验文档”
+- “将本次运行的相关经验总结到经验文档”
 
 工具通过 **stdio** 暴露给 MCP 客户端，每个调用经 Python 桥接层转发给装在 EPLAN
 内部的**加装程序（add-in）**，由它调用 EPLAN API 执行实际操作并把结果回传。
@@ -121,10 +126,7 @@ Copy-Item src/config.template.json config.json
 .\addin\build.ps1 -EplanApiDir "C:\Program Files\EPLAN\Platform\2.9.4\Bin"
 ```
 
-把生成的 DLL 复制到 EPLAN 的 add-in 目录（例如
-`C:\Program Files\EPLAN\Platform\2.9.4\Bin\Addins\`）。
-注意：**重新编译后的 DLL 无法从外部替换已加载的文件**（EPLAN 使用
-ShadowCopyAssemblies），必须在 EPLAN 内手动安装 / 更新，然后**重启 EPLAN**。
+在 EPLAN 内手动安装生成的 AddIn 插件，然后**重启 EPLAN**。
 
 **4）注册 MCP 服务器**
 
@@ -140,13 +142,13 @@ claude mcp add eplan-mcp -- python path\to\src\mcp_server.py
 
 ## 快速开始
 
-服务器注册好、EPLAN 已启动并加载 add-in 后，可以直接用自然语言下达指令：
+服务器注册好、EPLAN 已启动并加载 add-in 后，可以直接用自然语言下达指令，例如：
 
+- “连接EPLAN，阅读mcp服务器路径下的docs中的经验文档”**建议以这句话起始，让agent能读到经验文档**
 - “打开 `C:\projects\Demo.elk` 这个项目。”
 - “列出当前项目里所有的页。”
 - “在项目里新建一页 `=A1+B1/3`。”
 - “在页 `=A1+B1/3` 的 (100, 100) 位置放一个电机 `-M1`。”
-- “把 `-K1:1` 接到 `-M1:2`。”
 - “把项目导出成 PDF。”
 - “把设备标签 `-M1` 改名为 `-P1`。”
 
