@@ -1,6 +1,6 @@
 # eplan-mcp
 
-分支于swater-kankyo/eplan-mcp-oss，基于原架构补全了AddIn和mcp服务器空置的实际操作方法
+分支于 [swater-kankyo/eplan-mcp-oss](https://github.com/swater-kankyo/eplan-mcp-oss)，基于原架构补全了AddIn和mcp服务器空置的实际操作方法
 本README.md由AI生成
 
 `eplan-mcp` 是一个 [MCP（Model Context Protocol）](https://modelcontextprotocol.io) 服务器：
